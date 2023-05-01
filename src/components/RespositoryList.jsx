@@ -5,12 +5,6 @@ import "../styles/repositories.scss";
 
 //https://api.github.com/users/diego3g/repos
 
-const repository = {
-  name: "unform2",
-  description: "Forms in React",
-  link: "#",
-};
-
 export function RepositoryList() {
   const user = "diego3g";
   const [repositories, setRepositories] = useState([]);
@@ -27,10 +21,9 @@ export function RepositoryList() {
       <h1>Lista de repositórios</h1>
 
       <ul>
-        <RepositoryItem repository="{repository}" />
-        <RepositoryItem repository="{repository}" />
-        <RepositoryItem repository="{repository}" />
-        <RepositoryItem repository="{repository}" />
+        {repositories.map((repository, index) => {
+          return <RepositoryItem key={index} repository={repository} />;
+        })}
       </ul>
     </section>
   );
